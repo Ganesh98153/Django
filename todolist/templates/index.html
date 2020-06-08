@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>
+            TodoAPP
+        </title>
+
+    </head>
+
+
+    <body>
+
+        <h1> My todo app in <strong> Django </strong> </h1>
+
+
+        <ul>
+            {% for tasks in all_list %}
+
+            <li>
+                {{ tasks.task }}
+                <form action="/deleteTodo/{{ tasks.id }}/" method="post" style="display : inline;">{% csrf_token %}
+                    <input type="submit" value="Delete"/>
+                </form>
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+        <form action='/addTodo/' method='post'>
+
+            {% csrf_token %}
+
+            <input type='textfield' name='new_todoList' placeholder='e.g: Hair Cut'>
+            <input type='submit' value='add'>
+        </form>
+
+        <form action='/delete_all_Todo/' method='post' style = "display : inline">
+
+            {% csrf_token %}
+
+            <input type='submit' value='Detele All'>
+        </form>
+
+
+
+
+
+
+    </body>
+</html>
+
+
+
