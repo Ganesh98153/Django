@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,9 +22,30 @@
    
     <!-- Main CSS-->
     <link href="{% static "../static/main.css" %}" rel="stylesheet" media="all">
+
+
+    <script>
+
+
+        function hide_form(){
+        
+            document.getElementById("form_id").style.display='none';
+
+        
+        }
+
+        function showform(){
+
+            document.getElementById("form_id").style.display='block';
+        
+        }
+
+
+    </script>
+    
 </head>
 
-<body>
+<body onload="hide_form()">
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
@@ -43,9 +65,97 @@
 
                 <!-- This is end of the TU Block -->
 
-                <div class="card-body">
-                    <form method="post" action="/addSubject/">
+                <div class="card-body" >
+
+
+
+                        <div class="form-row m-b-55">
+                            <button class="btn btn--radius-2 btn--red" onclick="showform()">Add Subjects</button>
+                        </div>
+
+
+                        <div id ="form_id" class="form-row m-b-55">
+
+ 
+                        <form method="post" action="/addSubject/"> 
                         {% csrf_token %}
+
+
+                        <div class="card">
+                            <div class="card-body">
+                                Fill up the form to add new subject in a database.
+                            </div>
+                        </div>
+
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Subject Name</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    {% render_field form.subject_name class="input--style-5"  type="text" placeholder="Subject" %}
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+
+                         <div class="form-row m-b-55">
+                            <div class="name">Course Code</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    {% render_field form.subject_code class="input--style-5" placeholder="CSC-101" %}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Semester</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    {% render_field form.subject_semester class="form-control" %}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Subject Type:</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    {% render_field form.subject_type class="form-control" %}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-row m-b-55">
+                            <button class="btn btn--radius-2 btn--red" type="submit">Confirm</button>
+                        </div>
+
+
+                        <div class="form-row m-b-55">
+                            <button class="btn btn--radius-2 btn--red" type="submit" onclick="hide_form()">Cancel</button>
+                             
+                        </div>
+
+
+
+
+                    </form>
+
+                        </div>
+
+
 
 
                         
@@ -56,18 +166,25 @@
                     <table class="table table-bordered table-dark">
                       <thead>
                         <tr>
-                          <th scope="col">S.N.</th>
-                          <th scope="col">Course Number</th>
-                          <th scope="col">Subject </th>
+                          <th scope="col" width="10%">S.N.</th>
+                          <th scope="col" width="15%">Course Number</th>
+                          <th scope="col" width="40%">Subject </th>
+                          <th scope="col" width="35%">Type </th>
                         </tr>
                       </thead>
                       <tbody>
+
+                    {% for s in subject %}
                         <tr>
-                          <th scope="row">1</th>
-                          <td>     </td>
-                          <td>     </td>
-                          <td>     </td>
+                            
+
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td scope="row">{{ s.subject_code }}</td>
+                    <td scope="row">{{ s.subject_name }}</td>
+                    <td scope="row">{{ s.subject_type }}</td>
                         </tr>
+
+                        {% endfor %}
                       </tbody>
                     </table>
                     <br>
@@ -77,58 +194,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <!-- It is the end of the subjects -->
-
-
-
-                <div class="form row m-b-44">
-                    <h4 style = " color : blue; " > I will accpet all the <strong> terms & conditions </strong> . </h4>
-                </div>
-
-
-                            <!-- This is the next row in a form -->
-
-                        <div class="form-row p-t-20">
-                            <label class="label label--block">Are you an existing customer?</label>
-                            <div class="p-t-15">
-                                <label class="radio-container m-r-55">Yes
-                                    <input type="radio" checked="checked" name="exist">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container">No
-                                    <input type="radio" name="exist">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-
-
-
-
-                            <!-- This is the next row in a form -->
-
-
-                        <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Submit</button>
-                        </div>
-                    </form>
                     <br> <br> <br>
 
                     <form action="/admin/" method="post">

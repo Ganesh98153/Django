@@ -21,6 +21,221 @@
    
     <!-- Main CSS-->
     <link href="{% static "../static/main.css" %}" rel="stylesheet" media="all">
+    
+
+    <!-- Javascipt use to add table data according to the semester selected by user in a form -->
+
+    <script>
+
+       function populate() {
+
+            var sem = document.getElementById("semester_id").value;
+
+            //table indicate tbody 
+
+            var table = document.getElementById("row_pass");
+
+
+           var rowCount = table.rows.length;
+           console.log(rowCount);
+           for(var i=rowCount; i>1; i--) {
+
+               table.deleteRow(i-1)
+           }
+           
+            switch(sem) {
+
+                case '1st':
+                    {% for s in subject %}
+                    if ('{{ s.subject_semester}}'==sem)
+                    {
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
+                        var cell4 = row.insertCell();
+
+                        
+
+
+                        cell1.innerHTML = "{{ forloop.counter }}" ;
+                        cell2.innerHTML = "{{ s.subject_code }}" ;
+                        cell3.innerHTML = "{{ s.subject_name }}" ;
+                        cell4.innerHTML = "{{ s.subject_type }}" ;
+
+                    }
+                    {% endfor %}
+                    break;
+
+
+                case '2nd':
+
+                    {% for s in subject %}
+                    if ('{{ s.subject_semester}}'==sem)
+                    {
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
+                        var cell4 = row.insertCell();
+
+                        
+
+
+                        cell1.innerHTML = "{{ forloop.counter }}" ;
+                        cell2.innerHTML = "{{ s.subject_code }}" ;
+                        cell3.innerHTML = "{{ s.subject_name }}" ;
+                        cell4.innerHTML = "{{ s.subject_type }}" ;
+
+                    }
+                    {% endfor %}
+                    break;
+
+
+                case '3rd':
+                    
+                    {% for s in subject %}
+                    if ('{{ s.subject_semester}}'==sem)
+                    {
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
+                        var cell4 = row.insertCell();
+
+                        
+
+
+                        cell1.innerHTML = "{{ forloop.counter }}" ;
+                        cell2.innerHTML = "{{ s.subject_code }}" ;
+                        cell3.innerHTML = "{{ s.subject_name }}" ;
+                        cell4.innerHTML = "{{ s.subject_type }}" ;
+
+                    }
+                    {% endfor %}
+                    break;
+
+                 case '4th':
+                    
+                    {% for s in subject %}
+                    if ('{{ s.subject_semester}}'==sem)
+                    {
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
+                        var cell4 = row.insertCell();
+
+                        
+
+
+                        cell1.innerHTML = "{{ forloop.counter }}" ;
+                        cell2.innerHTML = "{{ s.subject_code }}" ;
+                        cell3.innerHTML = "{{ s.subject_name }}" ;
+                        cell4.innerHTML = "{{ s.subject_type }}" ;
+
+                    }
+                    {% endfor %}
+                    break;
+                    
+                 case '5th':
+                    
+                    {% for s in subject %}
+                    if ('{{ s.subject_semester}}'==sem)
+                    {
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
+                        var cell4 = row.insertCell();
+
+                        
+
+
+                        cell1.innerHTML = "{{ forloop.counter }}" ;
+                        cell2.innerHTML = "{{ s.subject_code }}" ;
+                        cell3.innerHTML = "{{ s.subject_name }}" ;
+                        cell4.innerHTML = "{{ s.subject_type }}" ;
+
+                    }
+                    {% endfor %}
+                    break;
+
+                 case '6th':
+
+                    {% for s in subject %}
+                    if ('{{ s.subject_semester}}'==sem)
+                    {
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
+                        var cell4 = row.insertCell();
+
+                        
+
+
+                        cell1.innerHTML = "{{ forloop.counter }}" ;
+                        cell2.innerHTML = "{{ s.subject_code }}" ;
+                        cell3.innerHTML = "{{ s.subject_name }}" ;
+                        cell4.innerHTML = "{{ s.subject_type }}" ;
+
+                    }
+                    {% endfor %}
+                    break;
+ 
+                case '7th':
+
+                    {% for s in subject %}
+                    if ('{{ s.subject_semester}}'==sem)
+                    {
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
+                        var cell4 = row.insertCell();
+
+                        
+
+
+                        cell1.innerHTML = "{{ forloop.counter }}" ;
+                        cell2.innerHTML = "{{ s.subject_code }}" ;
+                        cell3.innerHTML = "{{ s.subject_name }}" ;
+                        cell4.innerHTML = "{{ s.subject_type }}" ;
+
+                    }
+                    {% endfor %}
+                    break;
+                    
+                 case '8th':
+                    
+                    {% for s in subject %}
+                    if ('{{ s.subject_semester}}'==sem)
+                    {
+                        var row = table.insertRow();
+                        var cell1 = row.insertCell();
+                        var cell2 = row.insertCell();
+                        var cell3 = row.insertCell();
+                        var cell4 = row.insertCell();
+
+                        
+
+
+                        cell1.innerHTML = "{{ forloop.counter }}" ;
+                        cell2.innerHTML = "{{ s.subject_code }}" ;
+                        cell3.innerHTML = "{{ s.subject_name }}" ;
+                        cell4.innerHTML = "{{ s.subject_type }}" ;
+
+                    }
+                    {% endfor %}
+                    break;
+ 
+            }
+      }
+
+</script>
+    
+
 </head>
 
 <body>
@@ -56,6 +271,7 @@
                          <div class="name">Select Year</div>
                             <div class="value">
                               <select id="year_id" class="form-control" name="Year">
+                                  <option value=""> ------------- </option>
                                   {% for y in range_year %}
                                   <option value={{ y }}>{{ y  }}</option>
                                   {% endfor %}
@@ -70,6 +286,7 @@
                             <div class="name">Faculty </div>
                             <div class="value">
                                     <select id="faculty_id" name = "Faculty" class="form-control">
+                                        <option value=""> ------------- </option>
                                         <option value ="Physics"> Physics </option>
                                         <option value = "Computer Science" > Computer Science </option>
                                         <option value = "General"> General </option>
@@ -87,6 +304,7 @@
                          <div class="name">Batch</div>
                             <div class="value">
                               <select id="batch_id" name = "Batch" class="form-control">
+                                <option value=""> ------------- </option>
                                 {% for b in cur_year %}
                                 <option value={{ b }}>{{ b }}</option>
                                 {% endfor %}
@@ -101,10 +319,11 @@
                             <div class="name">College/ <br> Institute </div>
                             <div class="value">
                               <select id="college_id" class="form-control" name="College">
-                                <option selected> Amrit Campus </option>
-                                <option>Patan Campus</option>
-                                <option>Tri Chandra Campus</option>
-                                <option>Bhaktapur Campus</option>
+                                <option value=""> ------------- </option>
+                                <option value="Amrit Campus"> Amrit Campus </option>
+                                <option value="Patan Campus">Patan Campus</option>
+                                <option value="Tri Chandra Campus">Tri Chandra Campus</option>
+                                <option value="Bhaktapur Campus">Bhaktapur Campus</option>
                               </select>
                          </div>
                         </div>
@@ -153,9 +372,10 @@
                             <div class="name">Gender </div>
                             <div class="value">
                               <select id="gender_id" class="form-control" name="Gender">
-                                <option selected> Male </option>
-                                <option> Female </option>
-                                <option> Others </option>
+                                  <option value=""> ------- </option>
+                                <option value="Male"> Male </option>
+                                <option value="Female"> Female </option>
+                                <option value="Others"> Others </option>
                               </select>
                          </div>
                         </div>
@@ -202,16 +422,17 @@
                         <div class="form-row m-b-44">
                             <div class="name">Semester </div>
                             <div class="value">
-                              <select id="semester_id" class="form-control" name="Semester">
-                                <option selected> 1st </option>
-                                <option> 2nd </option>
-                                <option> 3rd </option>
-                                <option> 3rd </option>
-                                <option> 4th </option>
-                                <option> 5th </option>
-                                <option> 6th </option>
-                                <option> 7th </option>
-                                <option> 8th </option>
+                              <select id="semester_id" class="form-control" name="Semester" onchange="populate()">
+
+                                  <option value="" selected> ------- </option>
+                                <option value="1st"> 1st </option>
+                                <option value="2nd"> 2nd </option>
+                                <option value="3rd"> 3rd </option>
+                                <option value="4th"> 4th </option>
+                                <option value="5th"> 5th </option>
+                                <option value="6th"> 6th </option>
+                                <option value="7th"> 7th </option>
+                                <option value="8th"> 8th </option>
                               </select>
                          </div>
                         </div>
@@ -221,6 +442,47 @@
 
 
 
+                    <table class="table table-bordered table-dark" id="row_pass" name="sub_table">
+                        <tr>
+                          <th scope="col" width="5%">S.N.</th>
+                          <th scope="col" width="15%">Course Number</th>
+                          <th scope="col" width="40%">Subject </th>
+                          <th scope="col" width="40%"> Type </th>
+                        </tr>
+                      
+                    </table>
+                    <br>
+                                            
+
+
+
+
+
+
+                        <!-- It is the end of the subjects -->
+
+
+
+                <div class="form row m-b-44">
+                    <h4 style = " color : blue; " > I will accpet all the <strong> terms & conditions </strong> . </h4>
+                </div>
+
+
+                            <!-- This is the next row in a form -->
+
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">Are you an existing customer?</label>
+                            <div class="p-t-15">
+                                <label class="radio-container m-r-55">Yes
+                                    <input type="radio" checked="checked" name="exist">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">No
+                                    <input type="radio" name="exist">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
 
 
 
@@ -229,13 +491,22 @@
 
 
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Next</button>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Submit</button>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <br> <br> <br>
+
+                    <form action="/subjectForm/" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Subjects</button>
+                        </div>
+                    </form>
+
+
+
+
+
 
     
  <!-- Latest compiled and minified CSS -->

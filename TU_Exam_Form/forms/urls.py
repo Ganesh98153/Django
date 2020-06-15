@@ -4,6 +4,7 @@ from forms import views
 
 urlpatterns = [
     path('', views.exam),
-    path('subject/', views.subject),
     path('addDetail/', views.addDetail),
+    path('subjectForm/', views.subjectForm),
+    path('addSubject/',views.addSubject),
 ]
